@@ -5,8 +5,8 @@ var CategoriesViewController = FPObject.extend({
         this.categoriesModel = new CategoriesDataModel(dataModel);
     },
     showInWindow: function(wnd) {
-    	var self = this;
-    	if (!self.categoriesView) {
+        var self = this;
+        if (!self.categoriesView) {
             var uilLoader = new FPUILoader();
             uilLoader.loadXML({
                 files: ["categories.xml"],
@@ -16,15 +16,15 @@ var CategoriesViewController = FPObject.extend({
                     var categoriesListView = self.categoriesView.getViewByName("categories_list_view");
                     categoriesListView.setDataModel(self.categoriesModel);
                     categoriesListView.addEventListener({
-                    	eventName: "onItemClick",
-                    	callback: function(item) {
-		                    var filteredModel = DataManager.getInstance().getCategoryDataModel(item.title);
-            				var categoryWindow = new FPWindow();
-            				categoryWindow.setTitle(item.title);
-		                    var recipeController = new RecipeListViewController()
-		                    recipeController.showInWindow(categoryWindow, filteredModel);
-            				wnd.transitionToWindow(categoryWindow);
-                    	}
+                        eventName: "onItemClick",
+                        callback: function(item) {
+                            var filteredModel = DataManager.getInstance().getCategoryDataModel(item.title);
+                            var categoryWindow = new FPWindow();
+                            categoryWindow.setTitle(item.title);
+                            var recipeController = new RecipeListViewController()
+                            recipeController.showInWindow(categoryWindow, filteredModel);
+                            wnd.transitionToWindow(categoryWindow);
+                        }
                     });
                 }
             });
