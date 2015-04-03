@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Drawer -->
+<FPLayout orientation="vertical" backgroundColor="#00FFFF">
+    <FPListView name="drawer_list_view" rowTemplate="menu_row.xml" />
+</FPLayout>

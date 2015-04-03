@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FPCardLayout backgroundColor="#FFFFFF">
+    <FPListView name="categories_list_view" rowTemplate="category_row.xml" />
+</FPCardLayout>

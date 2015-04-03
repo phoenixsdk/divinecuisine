@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FPCardLayout size="match 200">
+    <FPImageView margin="1 1 1 0" scaleType="centerCrop" url="{images.slider-big.url}" />
+    <FPView margin="1 1 1 0" gradient="#00000000 #00000000 #AF000000 0" />
+    <FPLayout orientation="vertical">
+        <FPLayout orientation="horizontal">
+            <FPView weight="1.0" />
+            <FPButton name="favorite_button" backgroundImage="{favorite_image}" margin="10 10 10 10"
+                size="48 48" viewId="{id}" />
+        </FPLayout>
+        <FPView weight="1.0" />
+        <FPLabel align="center" margin="20 0 20 10" size="match wrap" textColor="#FFFFFF" textSize="18"
+            title="{title}" />
+    </FPLayout>
+</FPCardLayout>

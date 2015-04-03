@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FPCardLayout size="match match">
+	<FPLayout size="match wrap" orientation="vertical" margin="10 10 10 10">
+		<FPLabel size="wrap wrap" title="Add favorites by tapping on heart icons" gravity="center" textSize="21" />
+    	<FPImageView size="wrap wrap" gravity="center" image="fav_image.png" />
+	</FPLayout>
+</FPCardLayout>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FPCardLayout size="match match">
+    <FPActivityIndicator size="72 72" gravity="center" />
+</FPCardLayout>
