@@ -21,11 +21,11 @@ var RecipeWindow = FPWindow.extend({
                 var recipeDescription = recipeLayout.getViewByName("recipe_description");
                 recipeDescription.setTitle(item.description);
 
-                var checkBoxes = new Array();
+                var checkBoxes = [];
 
                 // ingredients
                 var ingredients_container = recipeLayout.getViewByName("ingredients_container");
-                for (ingredient in item.ingredients) {
+                for (var ingredient in item.ingredients) {
                     var v = new FPCheckBox();
                     v.setAttributes({
                                     checked: true,
@@ -41,16 +41,16 @@ var RecipeWindow = FPWindow.extend({
                 mail_ingredients_button.addEventListener({
                     eventName: "onClick",
                     callback: function() {
-                        var selectedIngredients = new Array();
+                        var selectedIngredients = [];
                         checkBoxes.forEach(function(checkBox) {
                             if (checkBox.isChecked()) {
                                 selectedIngredients.push(checkBox.getTitle());
                             }
                         });
-                        if (selectedIngredients.length == 0) {
+                        if (selectedIngredients.length === 0) {
                             alert("You need to select at least one ingredient");
                         } else {
-                            ingredientsList = "<html><body><ul>";
+                            var ingredientsList = "<html><body><ul>";
                             var ingredientsCount = 0;
                             selectedIngredients.forEach(function (ingredient) {
                                 ingredientsList += "<li>" + ++ingredientsCount + ". " + ingredient.trim() + ".</li><br>";

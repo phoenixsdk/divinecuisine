@@ -10,11 +10,11 @@ var DataModel = FPDataModel.extend({
         if (oldItems && oldItems.constructor === Array && oldItems.length > 0) {
             var newItemsMap = {};
             var oldItemsMap = {};
-            oldItems.forEach(function(item){
+            oldItems.forEach(function(item) {
                 oldItemsMap[item.id] = item;
             });
             var index = 0;
-            newItems.forEach(function(item){
+            newItems.forEach(function(item) {
                 if (!item.index) {
                     item.index = index++;
                 }
@@ -40,7 +40,7 @@ var DataModel = FPDataModel.extend({
     },
 
     getData: function() {
-        if (null == this.itemsCache) {
+        if (null === this.itemsCache) {
             this.itemsCache = this._super();
         }
         return this.itemsCache;
@@ -49,12 +49,12 @@ var DataModel = FPDataModel.extend({
     cacheData: function() {
         var items = this.getData();
         if (items) {
-            localStorage.setItem('recipes', JSON.stringify(items)); 
+            localStorage.setItem("recipes", JSON.stringify(items)); 
         }
     },
 
     loadFromCache: function() {
-        var json = localStorage.getItem('recipes');
+        var json = localStorage.getItem("recipes");
         var items = null;
         try {
             items = JSON.parse(json);

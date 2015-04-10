@@ -21,7 +21,7 @@ var CategoriesViewController = FPObject.extend({
                             var filteredModel = DataManager.getInstance().getCategoryDataModel(item.title);
                             var categoryWindow = new FPWindow();
                             categoryWindow.setTitle(item.title);
-                            var recipeController = new RecipeListViewController()
+                            var recipeController = new RecipeListViewController();
                             recipeController.showInWindow(categoryWindow, filteredModel);
                             wnd.transitionToWindow(categoryWindow);
                         }

@@ -15,12 +15,14 @@ var CategoriesDataModel = FPDataModel.extend({
         var categoriesMap = {};
 
         var items = dataModel.getData();
-        if (!items || items.length == 0) return;
+        if (!items || items.length === 0) {
+            return;
+        }
 
         items.forEach(function(element) {
             var category = element.category;
             var array = categoriesMap[category];
-            if (array == undefined) {
+            if (array === undefined) {
                 array = [];
             }
             array.push(element);

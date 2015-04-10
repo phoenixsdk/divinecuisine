@@ -6,7 +6,7 @@ var RecipeListViewController = FPObject.extend({
         var self = this;
         if (!self.mainView) {
             var uiLoader = new FPUILoader();
-            if (typeof emptyViewFile == "undefined") {
+            if (emptyViewFile === undefined) {
                 emptyViewFile = "empty_view.xml";
             }
             uiLoader.loadXML({
@@ -30,7 +30,7 @@ var RecipeListViewController = FPObject.extend({
                         callback: function(viewId) {
                             var dataModel = DataManager.getInstance().getDataModel();
                             var items = dataModel.getData();
-                            items.forEach(function(item){
+                            items.forEach(function(item) {
                                 if (item.id == viewId) {
                                     if (!item.favorite) {
                                         item.favorite = true;
