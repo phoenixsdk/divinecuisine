@@ -1,3 +1,4 @@
 .DS_Store
 project_android
 project_ios
+.build_ios
