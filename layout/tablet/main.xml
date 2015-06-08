@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Main view -->
+<FPCardLayout backgroundColor="#FFFFFF">
+    <FPGridView columns="2" name="recipes_list_view" rowTemplate="recipe_row.xml" />
+</FPCardLayout>

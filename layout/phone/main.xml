@@ -2,6 +2,5 @@
 
 <!-- Main view -->
 <FPCardLayout backgroundColor="#FFFFFF">
-    <!-- <FPActivityIndicator name="activity" size="72 72" gravity="center" /> -->
     <FPListView name="recipes_list_view" rowTemplate="recipe_row.xml" />
 </FPCardLayout>
