@@ -23,7 +23,7 @@ var DataModel = FPDataModel.extend({
             var result = [];
             for (var id in newItemsMap) {
                 var item = newItemsMap[id];
-                if (oldItemsMap[id].favorite) {
+                if (oldItemsMap[id] && oldItemsMap[id].favorite) {
                     item.favorite = oldItemsMap[id].favorite;
                     item.favorite_image = oldItemsMap[id].favorite_image;
                 }
