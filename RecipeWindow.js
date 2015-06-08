@@ -21,39 +21,49 @@ var RecipeWindow = FPWindow.extend({
                 var recipeDescription = recipeLayout.getViewByName("recipe_description");
                 recipeDescription.setTitle(item.description);
 
-                var checkBoxes = [];
+                var ingredients = [];
 
                 // ingredients
                 var ingredients_container = recipeLayout.getViewByName("ingredients_container");
                 for (var ingredient in item.ingredients) {
-                    var v = new FPCheckBox();
-                    v.setAttributes({
-                                    checked: true,
-                                    title:item.ingredients[ingredient],
-                                    margin:"20 0 10 0"
+                    var ingredientLabel = new FPLabel();
+                    var title = item.ingredients[ingredient];
+                    ingredientLabel.isHeader = false;
+                    if (title.indexOf(": -") > -1) {
+                        ingredientLabel.isHeader = true;
+                        // remove space and '-' chars from the end of the string
+                        title = title.substring(0, title.indexOf(": -"));
+                    }
+                    ingredientLabel.setAttributes({
+                                    typeface: ingredientLabel.isHeader ? "bold" : "normal",
+                                    title: title,
+                                    textSize: 18,
+                                    margin: ingredientLabel.isHeader ? "20 0 10 0" : "40 0 10 0"
                     });
-                    checkBoxes.push(v);
+                    ingredients.push(ingredientLabel);
                 }
 
-                ingredients_container.addViews(checkBoxes);
+                ingredients_container.addViews(ingredients);
 
                 var mail_ingredients_button = recipeLayout.getViewByName("mail_ingredients_button");
                 mail_ingredients_button.addEventListener({
                     eventName: "onClick",
                     callback: function() {
-                        var selectedIngredients = [];
-                        checkBoxes.forEach(function(checkBox) {
-                            if (checkBox.isChecked()) {
-                                selectedIngredients.push(checkBox.getTitle());
-                            }
-                        });
-                        if (selectedIngredients.length === 0) {
-                            alert("You need to select at least one ingredient");
+                        if (ingredients.length === 0) {
+                            alert("No ingredients to send");
                         } else {
                             var ingredientsList = "<html><body><ul>";
                             var ingredientsCount = 0;
-                            selectedIngredients.forEach(function (ingredient) {
-                                ingredientsList += "<li>" + ++ingredientsCount + ". " + ingredient.trim() + ".</li><br>";
+                            ingredients.forEach(function (ingredientLabel) {
+                                ingredientsList += "<li>";
+                                ingredientsList += ingredientLabel.isHeader ? "<b>" : "";
+                                ingredientsList += ingredientLabel.isHeader ? "" : ++ingredientsCount + ". ";
+                                ingredientsList += ingredientLabel.getTitle();
+                                ingredientsList += ingredientLabel.isHeader ? ":</b>" : "";
+                                ingredientsList += "</li><br>";
+                                if (ingredientLabel.isHeader) {
+                                    ingredientsCount = 0;
+                                }
                             });
                             ingredientsList += "</ul></body></html>";
                             var composer = new FPMailComposer();
