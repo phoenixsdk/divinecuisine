@@ -17,12 +17,21 @@ var RecipeListViewController = FPObject.extend({
                     wnd.setLayout(self.mainView);
                     var mainListView = self.mainView.getViewByName("recipes_list_view");
                     mainListView.setEmptyView(emptyView);
+                    mainListView.enablePullToRefresh(true);
                     mainListView.setDataModel(dataModel);
                     mainListView.addEventListener({
                         eventName: "onItemClick",
                         callback: function(item) {
                             var recipeWindow = new RecipeWindow(item);
                             wnd.transitionToWindow(recipeWindow);
+                        }
+                    });
+                    mainListView.addEventListener({
+                        eventName: "onRefresh",
+                        callback: function() {
+                            setTimeout(function() {
+                                mainListView.endRefreshing();
+                            }, 4000);
                         }
                     });
                     mainListView.addEventListener({
