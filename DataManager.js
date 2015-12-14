@@ -7,7 +7,7 @@ var DataManager = (function () {
         var favoritesDataModel = null;
 
         function checkIfUpdateRequired() {
-            var url = "http://divinecuisine.recipes/wrappers/getposts.php&count_only=1";
+            var url = "http://divinecuisine.recipes/mobile/posts.php?count_only=1";
             var xhr = new XMLHttpRequest();
             xhr.open("GET", url, true);
             xhr.onreadystatechange = function() {
@@ -22,7 +22,7 @@ var DataManager = (function () {
         }
 
         function loadFromInternet() {
-            var url = "http://divinecuisine.recipes/wrappers/getposts.php";
+            var url = "http://divinecuisine.recipes/mobile/posts.php";
             var xhr = new XMLHttpRequest();
             xhr.open("GET", url, true);
             xhr.onreadystatechange = function() {

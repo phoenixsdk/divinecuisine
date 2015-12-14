@@ -11,7 +11,7 @@ var RecipeWindow = FPWindow.extend({
                 self.setLayout(recipeLayout);
                 // photo
                 var recipePhoto = recipeLayout.getViewByName("recipe_photo");
-                recipePhoto.setUrl(item.images.large.url);
+                recipePhoto.setUrl(item.attachments[0].url);
 
                 // title
                 var recipeTitle = recipeLayout.getViewByName("recipe_title");
@@ -19,7 +19,7 @@ var RecipeWindow = FPWindow.extend({
 
                 // description
                 var recipeDescription = recipeLayout.getViewByName("recipe_description");
-                recipeDescription.setTitle(item.description);
+                recipeDescription.setTitle(item.content);
 
                 var ingredients = [];
 
@@ -27,7 +27,7 @@ var RecipeWindow = FPWindow.extend({
                 var ingredients_container = recipeLayout.getViewByName("ingredients_container");
                 for (var ingredient in item.ingredients) {
                     var ingredientLabel = new FPLabel();
-                    var title = item.ingredients[ingredient];
+                    var title = item.ingredients[ingredient]["text"];
                     ingredientLabel.isHeader = false;
                     if (title.indexOf(": -") > -1) {
                         ingredientLabel.isHeader = true;
@@ -79,7 +79,12 @@ var RecipeWindow = FPWindow.extend({
                 
                 // instructions
                 var recipeInstructions = recipeLayout.getViewByName("recipe_instructions");
-                recipeInstructions.setTitle(item.instructions);
+                var instructions = "";
+                for (instruction in item.instructions) {
+                    instructions += item.instructions[instruction]["text"];
+                    instructions += "\n";
+                }
+                recipeInstructions.setTitle(instructions);
 
             },
             failure: function(error) {

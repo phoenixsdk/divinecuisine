@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FPCardLayout>
+<FPCardLayout backgroundColor="#FFFFFF">
     <FPScrollView>
         <FPCardLayout>
-            <FPLayout name="main_container" backgroundColor="#FFFFFF" orientation="vertical">
+            <FPLayout name="main_container" orientation="vertical">
                 <FPImageView name="recipe_photo" margin="8 8 8 8" scaleType="centerCrop" size="match 300"
                     url="placeholder" />
                 <FPLabel name="recipe_title" align="left" margin="10 0 10 10" maxLines="3"
                     size="match wrap" textColor="#640D11" textSize="32" title="" />
                 <FPLabel name="recipe_description" margin="10 10 10 10" size="match wrap" textSize="18" />
                 <FPLabel margin="10 0 10 10" size="match wrap" textColor="#A16768" textSize="24" title="Ingredients:" />
-                <FPLayout name="ingredients_container" orientation="vertical">
+                <FPLayout size="match wrap" name="ingredients_container" orientation="vertical">
                     <!-- Ingredients will be created here -->
                 </FPLayout>
-                <FPlayout margin="10 0 10 0" orientation="horizontal">
+                <FPlayout margin="10" orientation="horizontal">
                     <FPButton name="mail_ingredients_button" title="Mail the list"/>
                 </FPlayout>
                 <FPLabel margin="10 10 10 10" size="-1 -2" textSize="24" textColor="#A16768" title="Instructions:" />
-                <FPLabel name="recipe_instructions" margin="10 0 10 30" size="match wrap" textSize="18" />
+                <FPLabel name="recipe_instructions" margin="20 0 20 30" size="match wrap" textSize="18" />
             </FPLayout>
         </FPCardLayout>
     </FPScrollView>
