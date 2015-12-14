@@ -29,9 +29,11 @@ var RecipeListViewController = FPObject.extend({
                     mainListView.addEventListener({
                         eventName: "onRefresh",
                         callback: function() {
-                            setTimeout(function() {
-                                mainListView.endRefreshing();
-                            }, 4000);
+                            DataManager.getInstance().refreshData({
+                                success: function() {
+                                    mainListView.endRefreshing();
+                                }
+                            });
                         }
                     });
                     mainListView.addEventListener({

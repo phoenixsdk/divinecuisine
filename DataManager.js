@@ -21,7 +21,7 @@ var DataManager = (function () {
             xhr.send(null);
         }
 
-        function loadFromInternet() {
+        function loadFromInternet(config) {
             var url = "http://divinecuisine.recipes/mobile/posts.php";
             var xhr = new XMLHttpRequest();
             xhr.open("GET", url, true);
@@ -29,6 +29,9 @@ var DataManager = (function () {
                 if (xhr.readyState === 4) {
                     var items = JSON.parse(xhr.responseText);
                     dataModel.setData(items);
+                    if (!!config && !!config.success) {
+                        config.success();
+                    }
                 }
             };
             xhr.send(null);
@@ -40,8 +43,11 @@ var DataManager = (function () {
         }
         return {
             // public
-            getDataModel: function () {
+            getDataModel: function() {
                 return dataModel;
+            },
+            refreshData: function(config) {
+                loadFromInternet(config);
             },
             getFavoritesDataModel: function() {
                 if (null === favoritesDataModel) {
