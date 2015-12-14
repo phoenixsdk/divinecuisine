@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FPCardLayout size="match 200">
-    <FPImageView margin="1 1 1 0" scaleType="centerCrop" url="{attachments.url}" />
+    <FPImageView margin="1 1 1 0" scaleType="centerCrop" url="{thumbnail_images.medium.url}" />
     <FPView margin="1 1 1 0" gradient="#00000000 #00000000 #AF000000 0" />
     <FPLayout orientation="vertical">
         <FPLayout orientation="horizontal">

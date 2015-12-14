@@ -49,12 +49,12 @@ var DataModel = FPDataModel.extend({
     cacheData: function() {
         var items = this.getData();
         if (items) {
-            localStorage.setItem("recipes", JSON.stringify(items)); 
+            localStorage.setItem("recipes_1.4", JSON.stringify(items)); 
         }
     },
 
     loadFromCache: function() {
-        var json = localStorage.getItem("recipes");
+        var json = localStorage.getItem("recipes_1.4");
         var items = null;
         try {
             items = JSON.parse(json);

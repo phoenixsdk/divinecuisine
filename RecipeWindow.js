@@ -7,12 +7,21 @@ var RecipeWindow = FPWindow.extend({
         uiLoader.loadXML({
             files : ["recipe.xml"],
             success: function(views) {
+                self.setTheme({
+                    primaryColor: "#C6393C",
+                    accentColor: "#C6393C"
+                });
+
                 var recipeLayout = views["recipe.xml"];
                 self.setLayout(recipeLayout);
                 // photo
                 var recipePhoto = recipeLayout.getViewByName("recipe_photo");
-                recipePhoto.setUrl(item.attachments[0].url);
-
+                if (!!item.attachments && item.attachments.length > 0) {
+                    recipePhoto.setUrl(item.attachments[0].url);
+                } else {
+                    recipePhoto.setUrl(item.thumbnail_images.full.url);
+                }
+                
                 // title
                 var recipeTitle = recipeLayout.getViewByName("recipe_title");
                 recipeTitle.setTitle(item.title);

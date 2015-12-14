@@ -33,7 +33,7 @@ var CategoriesDataModel = FPDataModel.extend({
         keys.forEach(function(key) {
             var category = {};
             category.title = key;
-            category.attachments = categoriesMap[key][0].attachments;
+            category.thumbnail_images = categoriesMap[key][0].thumbnail_images;
             categories.push(category);
         });
 
